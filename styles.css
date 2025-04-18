@@ -1,0 +1,33 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.square {
+  background-color: rgb(219, 12, 12);
+  border: solid 1px white;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  flex: 1 1 100px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  width: 1000px;
+  justify-content: left;
+  /* border: 2px solid turquoise; */
+}
+
+#containerDiv {
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  aspect-ratio: 1 / 1;
+  border: 10px solid gray;
+  /* flex-wrap: wrap; */
+  justify-content: left;
+  align-items: start;
+}
