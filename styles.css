@@ -17,8 +17,8 @@ body {
 } */
 
 .square {
-  background-color: rgb(219, 12, 12);
-  border: solid 1px white;
+  background-color: white;
+  border: solid 1px rgb(219, 12, 12);
   max-width: 500px;
   aspect-ratio: 1 / 1;
   flex: 1 1 100px;
@@ -28,6 +28,16 @@ body {
 .squareMoused {
   background-color: black;
   border: solid 1px green;
+}
+
+.gradientSquare {
+  background-color: black;
+  opacity: .1;
+  border: solid 1px rgb(219, 12, 12);
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  flex: 1 1 100px;
+  box-sizing: border-box;
 }
 
 .row {

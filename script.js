@@ -1,18 +1,17 @@
 
 const gridContainer = document.getElementById("gridContainer");
 const newGridButton = document.getElementById("newGridButton");
-// const row = document.createElement("div");
-// const square = document.createElement("div");
 
 let numberChoice = 100;
-createGrid(10);
+createGrid(100);
 etchASketch();
 
-function etchASketch () {
+function etchASketch() {
   newGridButton.addEventListener("click", askForNumber);
   clearGrid();
   createGrid(numberChoice);
-  enableSketching();
+  // enableSketching();
+  enableGradiatedSketching();
 }
   
 function askForNumber() {
@@ -32,22 +31,7 @@ function askForNumber() {
     // createGrid(selection);
   } else {
     alert("That's not a valid entry. Try again!");
-  
-  
-  // validateSelection(userSelection);
-  // function validateSelection(selection) {
-  //   // if (selection === null) {
-  //   //   alert("Please choose a number.")
-  //   // } else {
-  //     selection = parseInt(selection);
-  //     if (!isNaN(selection) && selection >= 10 && selection <= 100) {
-  //       numberChoice = selection;
-  //       // createGrid(selection);
-  //     } else {
-  //       alert("That's not a valid entry. Try again!");
-  //     // }
-    }
-  // } 
+  }
 }
 
 function addOneRow(num) {
@@ -56,7 +40,8 @@ function addOneRow(num) {
   gridContainer.appendChild(row);
   for (i = 0; i < num; i++) {
     const square = document.createElement("div");
-    square.classList.add("square");
+    // square.classList.add("square"); //for enableSketching
+    square.classList.add("gradientSquare"); //for enableGradiatedSketching
     row.appendChild(square);
   }
 }
@@ -65,7 +50,6 @@ function createGrid(num) {
   for (x = 0; x < num; x++) {
     addOneRow(num);
   }
-  // sketch();
 }
 
 function clearGrid() {
@@ -74,11 +58,26 @@ function clearGrid() {
   }
 } 
 
-function enableSketching() {
-  console.log("sketchy")
-  //grab all the squares and put event listeners on each one?
-  document.querySelectorAll(".square").forEach(item => 
-    item.addEventListener("mousemove", event =>
-      item.classList.add("squareMoused")
-    ))
+// function enableSketching() {
+//   console.log("sketchy")
+//   document.querySelectorAll(".square").forEach(item => 
+//     item.addEventListener("mousemove", event => 
+//       item.classList.add("squareMoused")
+//     )
+//   )
+// }
+
+function enableGradiatedSketching() {
+  document.querySelectorAll(".gradientSquare").forEach(item =>
+    item.addEventListener("mouseenter", increaseOpacity)
+  )
+  function increaseOpacity() {
+    const computedStyle = window.getComputedStyle(this);
+    const currentOpacity = computedStyle.getPropertyValue("opacity");
+    if (currentOpacity < 1) {
+      const newOpacity = parseFloat(currentOpacity) + .1;
+      console.log(newOpacity);
+      this.style.opacity = newOpacity;
+    }
+  }
 }
