@@ -1,6 +1,5 @@
 
 body {
-  /* display: flex; */
   justify-content: center;
   box-sizing: border-box;
 }
@@ -33,7 +32,16 @@ body {
 .gradientSquare {
   background-color: black;
   opacity: .1;
-  border: solid 1px rgb(219, 12, 12);
+  border: solid 1px gray;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  flex: 1 1 100px;
+  box-sizing: border-box;
+}
+
+.gradientSquareRandomColor {
+  opacity: .1;
+  /* border: solid 1px gray; */
   max-width: 500px;
   aspect-ratio: 1 / 1;
   flex: 1 1 100px;
@@ -44,7 +52,6 @@ body {
   display: flex;
   width: 1000px;
   justify-content: left;
-  /* border: 2px solid turquoise; */
 }
 
 #gridContainer {
@@ -53,11 +60,14 @@ body {
   height: 1000px;
   aspect-ratio: 1 / 1;
   border: 10px solid gray;
-  /* flex-wrap: wrap; */
   justify-content: left;
   align-items: start;
 }
 
 #newGridButton {
   background-color: aqua;
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
